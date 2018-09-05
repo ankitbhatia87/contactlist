@@ -1,0 +1,39 @@
+<div class="container">
+    <form (submit)="addContact()">
+      <div class="form-group row pt-2">
+        <div class="col-md-3">
+          <label>First Name:</label>
+          <input type="text" [(ngModel)]="firstname" name="firstname" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label>Last Name:</label>
+            <input type="text" [(ngModel)]="lastname" name="lastname" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label>Contact Number:</label>
+            <input type="text" [(ngModel)]="contactnumber" name="contactnumber" class="form-control">
+        </div>
+        <div class="col-md-3 pt-4">
+          <input type="submit" value="Add Contact" class="btn btn-success">
+        </div>
+      </div>
+    </form>
+</div>
+<div class="container">
+  <div>
+    <div class="row pt-2" *ngFor="let contact of contacts">
+      <div class="col-md-3">
+        {{contact.firstname}}
+      </div>
+      <div class="col-md-3">
+        {{contact.lastname}}
+      </div>
+      <div class="col-md-3">
+        {{contact.contactnumber}}
+      </div>
+      <div class="col-md-3">
+          <input type="button" value="Delete" (click)="deleteContact(contact._id)" class="btn btn-danger">
+        </div>
+    </div>
+  </div>
+</div>
